@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "outDir": "./src/extension/scripts/",
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "Node",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/content/*": ["./src/content/*"],
+      "@/background/*": ["./src/background/*"],
+      "@/extension/*": ["./src/extension/*"],
+      "@/common/*": ["./src/common/*"]
+    }
+  }
+}

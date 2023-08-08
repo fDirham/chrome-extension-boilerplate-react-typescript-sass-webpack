@@ -1,0 +1,15 @@
+.container {
+  position: fixed;
+  z-index: 99999;
+  top: 10px;
+  left: 50%;
+  width: 100px;
+  transform: translate(-50%, 0);
+  background-color: red;
+
+  color: var(--color-font);
+
+  .numText {
+    font-weight: bold;
+  }
+}
