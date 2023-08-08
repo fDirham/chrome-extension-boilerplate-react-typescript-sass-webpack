@@ -1,15 +1,26 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   entry: {
-    content: path.join(__dirname, 'src', 'content', 'index.ts'),
-    background: path.join(__dirname, 'src', 'background', 'index.ts'),
+    'src/extension/scripts/content': path.join(
+      __dirname,
+      'src',
+      'content',
+      'index.ts'
+    ),
+    'src/extension/scripts/background': path.join(
+      __dirname,
+      'src',
+      'background',
+      'index.ts'
+    ),
+    'src/local/dist/index': path.join(__dirname, 'src', 'local', 'index.tsx'),
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'src', 'extension', 'scripts'),
-    clean: true,
+    path: path.resolve(__dirname),
   },
   mode: 'development',
   devtool: 'cheap-module-source-map',
@@ -42,4 +53,5 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
     plugins: [new TsconfigPathsPlugin()],
   },
+  plugins: [new HtmlWebpackPlugin()],
 };

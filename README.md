@@ -8,13 +8,16 @@ Created this for practice but also because I couldn't find any boilerplate code 
 
 1. Clone the repo.
 2. Run `npm install` or `yarn install`
-3. Run `npm run dev`. This will run `webpack --watch` which rebuilds the necessary files whenever we change them. These build files will show up under `src/extension/scripts`
-4. Go to chrome and click manage extensions in the extensions button
-5. Make sure developer mode is on and click Load Unpacked
-6. Open the `src/extension` folder
-7. Enable this extension
+3. Run `npm run build`. This will build files for the chrome extension to work.
+4. Make sure developer mode is on and click Load Unpacked
+5. Open the `src/extension` folder
+6. Enable this extension
 
 Whenever a change is made and webpack rebuilds everything, you need to reload the extension from the manage extensions page. Or get the `chrome extension reloader` chrome extension to make things easier. Any changes to webpack itself merits a restart of the `npm run dev` command. Any changes to `manifest.json` merits a complete chrome extension reload by packing and unpacking.
+
+## Dev tools
+
+Run `npm run serve`. This will run webpack serve. Head to `localhost:8080` or whatever port is indicated, and components defined in `<RootComponent>` will be rendered without the need to toggle. Any changes to any components or their children defined in `<RootComponent>` will auto reload the preview.
 
 ## How the extension works
 
@@ -29,7 +32,3 @@ I had the most trouble setting up CSS and SCSS modules since webpack loaders kep
 The `StyleWrapper` component works by taking in a string representing CSS as a prop. This string is available simply by importing a `.css` or `.scss` file thanks to webpack configs. It then processes it to encapsulate the styles and then renders it within a `<style>` tag. You can use standard `.scss` files as modules this way when combined with the `useLocalStyle` hook.
 
 If anyone knows of a better way, feel free to submit a PR
-
-## TODO
-
-- Create some sort of simulation environment to view the CX without actually visiting a page

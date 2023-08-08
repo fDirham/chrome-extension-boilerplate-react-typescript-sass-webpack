@@ -10,3 +10,7 @@ export function generateRandomString(length: number): string {
 
   return result;
 }
+
+export const isExtensionMode = () => {
+  return !!chrome.contentSettings;
+};
