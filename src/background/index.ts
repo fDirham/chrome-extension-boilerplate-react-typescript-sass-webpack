@@ -6,7 +6,7 @@ if (isExtensionMode()) {
     try {
       await chrome.tabs.sendMessage(tab.id, { action: 'TOGGLE' });
     } catch (error) {
-      appLogError("Can't send message to tab", error);
+      appLogError(error);
     }
   });
 }

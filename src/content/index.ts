@@ -1,5 +1,5 @@
 import { appLog } from '@/common/loggers';
-import * as Components from './components';
+import * as components from './components';
 import { isExtensionMode } from '@/common/helpers';
 
 /*
@@ -14,13 +14,13 @@ function docReady(fn: any) {
   ) {
     fn();
   } else {
-    appLog('Not ready');
+    appLog('Doc not ready');
     document.addEventListener('DOMContentLoaded', fn);
   }
 }
 
-docReady(async () => {
-  if (!isExtensionMode()) return;
-  Components.loadUI();
-  appLog('Micro notes loaded');
-});
+if (isExtensionMode()) {
+  docReady(async () => {
+    components.loadUI();
+  });
+}
